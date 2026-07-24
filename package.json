@@ -2,15 +2,34 @@
   "name": "@mantle-ui/icons",
   "version": "0.1.0",
   "description": "Open-source icon library for Mantle UI.",
+  "style": "primeicons.css",
+  "files": [
+    "fonts",
+    "raw-svg",
+    "primeicons.css",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run verify",
+    "verify": "node scripts/verify-package.mjs",
+    "pack:check": "npm pack --dry-run"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mantle-UI/mantle-icons.git"
   },
-  "keywords": ["Icon"],
+  "keywords": [
+    "Icon"
+  ],
   "author": "Mantle UI contributors",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Mantle-UI/mantle-icons/issues"
   },
-  "homepage": "https://github.com/Mantle-UI/mantle-icons#readme"
+  "homepage": "https://github.com/Mantle-UI/mantle-icons#readme",
+  "dependencies": {
+    "@mantle-ui/react": "file:../../../../../../../Develop/mantle-ui"
+  }
 }
