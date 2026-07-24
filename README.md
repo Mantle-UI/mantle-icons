@@ -1,14 +1,21 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/primeicons.svg)](https://badge.fury.io/js/primeicons)
-[![npm downloads](https://img.shields.io/npm/dm/primeicons.svg)](https://www.npmjs.com/package/primeicons)
-[![Discord Chat](https://img.shields.io/discord/557940238991753223.svg?color=7289da&label=chat&logo=discord)](https://discord.gg/gzKFYnpmCY)
+# Mantle Icons
 
----
+Mantle Icons is the open-source icon library for Mantle UI.
 
-![PrimeIcons Logo](https://www.primefaces.org/wp-content/uploads/2018/07/primeicons-logo.svg "PrimeIcons")
+## Status
 
-Font Icon Library for Prime UI Libraries: [PrimeNG](https://www.primeng.org/icons/) | [PrimeReact](https://www.primereact.org/icons/) | [PrimeFaces](https://primefaces.org/showcase/icons.xhtml) | [PrimeVue](https://primevue.org/icons) 
+This repository begins as a compatibility continuation of PrimeIcons 7.0.0. It retains the existing `pi-*` class names and font assets so projects can migrate without changing icon markup.
 
----
+## Install
 
-![Icons Preview](https://www.primefaces.org/wp-content/uploads/2022/09/primeicons-6-0-list.png "PrimeIcons")
+```bash
+npm install @mantle-ui/icons
+```
+
+Then include `primeicons/primeicons.css` from the package.
+
+## Provenance and license
+
+The initial source and full Git history were imported from the MIT-licensed PrimeIcons 7.0.0 release. The original MIT license is preserved in [LICENSE](LICENSE).
+
+Mantle Icons is an independent community-maintained project and is not affiliated with PrimeTek or Prime UI.

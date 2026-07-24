@@ -1,16 +1,16 @@
 {
-  "name": "primeicons",
-  "version": "7.0.0",
-  "description": "Icon Library for Prime UI Libraries",
+  "name": "@mantle-ui/icons",
+  "version": "0.1.0",
+  "description": "Open-source icon library for Mantle UI.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/primefaces/primeicons.git"
+    "url": "git+https://github.com/Mantle-UI/mantle-icons.git"
   },
   "keywords": ["Icon"],
-  "author": "PrimeTek",
+  "author": "Mantle UI contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/primefaces/primeicons/issues"
+    "url": "https://github.com/Mantle-UI/mantle-icons/issues"
   },
-  "homepage": "https://github.com/primefaces/primeicons#readme"
+  "homepage": "https://github.com/Mantle-UI/mantle-icons#readme"
 }
