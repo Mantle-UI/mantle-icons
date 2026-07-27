@@ -9,9 +9,9 @@ latest Mantle release tag:
 - linked issue type `feature`: minor
 - linked issue type `bug`: patch
 
-Mantle Icons continues from the upstream `7.0.0` tag. The first automated
-Mantle release therefore calculates the next version from changes merged after
-that tag.
+Mantle Icons continues from the upstream `7.0.0` tag and starts Mantle releases
+at `7.1.0`. Run the first release with `initial_release` enabled. Later releases
+calculate the next version from merged changes after the `v7.1.0` Mantle tag.
 
 Before the first release, configure:
 
