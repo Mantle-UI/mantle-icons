@@ -1,0 +1,110 @@
+name: Release
+
+on:
+    workflow_dispatch:
+        inputs:
+            initial_release:
+                description: Create the initial Mantle 7.1.0 release without calculating a version bump.
+                required: false
+                default: false
+                type: boolean
+
+permissions:
+    contents: read
+    pull-requests: read
+    issues: read
+
+jobs:
+    release:
+        if: github.repository == 'Mantle-UI/mantle-icons' && github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        environment: release
+
+        steps:
+            - name: Check release allowlist
+              env:
+                  ACTOR: ${{ github.actor }}
+                  ALLOWED_RELEASE_ACTORS: ${{ vars.RELEASE_ALLOWED_ACTORS }}
+              run: |
+                  if [ -z "$ALLOWED_RELEASE_ACTORS" ]; then
+                    echo "::error::Repository variable RELEASE_ALLOWED_ACTORS is not configured."
+                    exit 1
+                  fi
+
+                  normalized_list="$(printf '%s' "$ALLOWED_RELEASE_ACTORS" | tr ',;' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sed '/^$/d')"
+
+                  if ! printf '%s\n' "$normalized_list" | grep -Fxq "$ACTOR"; then
+                    echo "::error::User '$ACTOR' is not allowed to run releases."
+                    exit 1
+                  fi
+
+            - name: Create GitHub App token
+              id: app-token
+              uses: actions/create-github-app-token@v3
+              with:
+                  client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+                  private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+                  permission-contents: write
+                  permission-issues: read
+                  permission-pull-requests: read
+
+            - uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
+                  token: ${{ steps.app-token.outputs.token }}
+                  persist-credentials: true
+
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: "22"
+                  cache: npm
+
+            - run: npm ci
+
+            - name: Configure git for GitHub App
+              run: |
+                  git config user.name "${{ steps.app-token.outputs.app-slug }}[bot]"
+                  git config user.email "${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com"
+
+            - name: Prepare release
+              env:
+                  INITIAL_RELEASE: ${{ inputs.initial_release }}
+                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
+              run: |
+                  if [ "$INITIAL_RELEASE" = "true" ]; then
+                    echo "Initial Mantle Icons release." > RELEASE_NOTES.md
+                  else
+                    node ./scripts/release.js
+                  fi
+                  VERSION="$(node -p "require('./package.json').version")"
+                  echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+              id: version
+
+            - name: Commit release changes
+              if: inputs.initial_release != true
+              env:
+                  VERSION: ${{ steps.version.outputs.version }}
+              run: |
+                  git add CHANGELOG.md package-lock.json package.json
+                  git commit -m "chore(release): v$VERSION"
+
+            - name: Create release tag
+              env:
+                  VERSION: ${{ steps.version.outputs.version }}
+              run: git tag -a "v$VERSION" -m "v$VERSION"
+
+            - name: Push release
+              env:
+                  INITIAL_RELEASE: ${{ inputs.initial_release }}
+              run: |
+                  if [ "$INITIAL_RELEASE" = "true" ]; then
+                    git push origin "v${{ steps.version.outputs.version }}"
+                  else
+                    git push --follow-tags origin HEAD:main
+                  fi
+
+            - name: Create GitHub Release
+              env:
+                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
+                  VERSION: ${{ steps.version.outputs.version }}
+              run: gh release create "v$VERSION" --title "v$VERSION" --notes-file RELEASE_NOTES.md
