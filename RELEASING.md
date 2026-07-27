@@ -9,9 +9,9 @@ latest Mantle release tag:
 - linked issue type `feature`: minor
 - linked issue type `bug`: patch
 
-The first Mantle release is a bootstrap release. Run the workflow with
-`bootstrap` enabled to tag and release the existing `0.1.0` package without a
-version bump calculation.
+Mantle Icons continues from the upstream `v7.0.0` tag. The first automated
+Mantle release therefore calculates the next version from changes merged after
+that tag.
 
 Before the first release, configure:
 

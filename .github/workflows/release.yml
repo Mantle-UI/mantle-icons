@@ -2,12 +2,6 @@ name: Release
 
 on:
     workflow_dispatch:
-        inputs:
-            bootstrap:
-                description: Create the initial v0.1.0 release without calculating a version bump.
-                required: false
-                default: false
-                type: boolean
 
 permissions:
     contents: read
@@ -68,21 +62,14 @@ jobs:
 
             - name: Prepare release
               env:
-                  BOOTSTRAP: ${{ inputs.bootstrap }}
                   GH_TOKEN: ${{ steps.app-token.outputs.token }}
               run: |
-                  if [ "$BOOTSTRAP" = "true" ]; then
-                    VERSION="$(node -p "require('./package.json').version")"
-                    echo "Initial Mantle Icons release." > RELEASE_NOTES.md
-                  else
-                    node ./scripts/release.js
-                    VERSION="$(node -p "require('./package.json').version")"
-                  fi
+                  node ./scripts/release.js
+                  VERSION="$(node -p "require('./package.json').version")"
                   echo "version=$VERSION" >> "$GITHUB_OUTPUT"
               id: version
 
             - name: Commit release changes
-              if: inputs.bootstrap != true
               env:
                   VERSION: ${{ steps.version.outputs.version }}
               run: |
@@ -95,14 +82,7 @@ jobs:
               run: git tag -a "v$VERSION" -m "v$VERSION"
 
             - name: Push release
-              env:
-                  BOOTSTRAP: ${{ inputs.bootstrap }}
-              run: |
-                  if [ "$BOOTSTRAP" = "true" ]; then
-                    git push origin "v${{ steps.version.outputs.version }}"
-                  else
-                    git push --follow-tags origin HEAD:main
-                  fi
+              run: git push --follow-tags origin HEAD:main
 
             - name: Create GitHub Release
               env:
