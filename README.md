@@ -1,5 +1,7 @@
 # Mantle Icons
 
+[![Discord Chat](https://img.shields.io/discord/1524174660386820177?label=Discord&logo=discord)](https://discord.gg/BGs6EkpnDv)
+
 Mantle Icons is the open-source icon library for Mantle UI.
 
 ## Status
