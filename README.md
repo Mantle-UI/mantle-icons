@@ -7,6 +7,8 @@
 
 Mantle Icons is the open-source icon library for Mantle UI.
 
+Browse the icon gallery at [mantle-ui.github.io/mantle-icons](https://mantle-ui.github.io/mantle-icons/).
+
 ## Status
 
 This repository begins as a compatibility continuation of PrimeIcons 7.0.0. It retains the existing `pi-*` class names and font assets so projects can migrate without changing icon markup.

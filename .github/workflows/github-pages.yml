@@ -1,0 +1,42 @@
+name: GitHub Pages
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: github-pages
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+            - name: Assemble static site
+              run: |
+                  mkdir out
+                  cp demo.html out/index.html
+                  cp primeicons.css out/
+                  cp -R demo-files fonts out/
+            - uses: actions/configure-pages@v6
+            - uses: actions/upload-pages-artifact@v5
+              with:
+                  path: ./out
+
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v5
