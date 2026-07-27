@@ -1,0 +1,55 @@
+name: Bug report
+description: Create a report to help Mantle UI improve.
+title: 'Replace_With_Component_Name: Brief_Bug_Description'
+labels: ['Status: Needs Triage']
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Describe the bug
+          description: A clear and concise description of what the bug is.
+      validations:
+          required: true
+    - type: input
+      id: reproducer
+      attributes:
+          label: Reproducer
+          placeholder: https://stackblitz.com/edit/vitejs-vite-pekean1c
+          description: |
+              Please fork [Stackblitz project](https://stackblitz.com/edit/vitejs-vite-pekean1c?file=src%2FApp.tsx) and create a case demonstrating your bug report. Issues **without** a CodeSandbox have much less possibility to be reviewed.
+      validations:
+          required: false
+    - type: textarea
+      id: system-info
+      attributes:
+          label: System Information
+          description: Output of `npx envinfo --system --npmPackages @mantle-ui/icons --binaries --browsers`
+          render: Shell
+          placeholder: >
+              System:...
+              Binaries:...
+              Browsers: ...
+              npmPackages:
+                 @mantle-ui/icons: 0.1.0 => 0.1.0
+                 react: 19.3.1 => 19.3.1
+      validations:
+          required: true
+    - type: textarea
+      id: reproduce-steps
+      attributes:
+          label: Steps to reproduce the behavior
+          description: A clear and concise description of how to make the issue happen.
+          placeholder: >
+              1. Go to '...'
+              2. Click on '....'
+              3. Scroll down to '....'
+              4. See error
+      validations:
+          required: false
+    - type: textarea
+      id: expected-behavior
+      attributes:
+          label: Expected behavior
+          description: A clear and concise description of what you expected to happen.
+      validations:
+          required: false
