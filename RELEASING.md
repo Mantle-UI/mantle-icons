@@ -9,7 +9,7 @@ latest Mantle release tag:
 - linked issue type `feature`: minor
 - linked issue type `bug`: patch
 
-Mantle Icons continues from the upstream `v7.0.0` tag. The first automated
+Mantle Icons continues from the upstream `7.0.0` tag. The first automated
 Mantle release therefore calculates the next version from changes merged after
 that tag.
 
