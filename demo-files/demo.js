@@ -1,30 +1,33 @@
-if (!('boxShadow' in document.body.style)) {
-    document.body.setAttribute('class', 'noBoxShadow');
+const searchInput = document.getElementById('iconSearch');
+const sizeInput = document.getElementById('iconSize');
+const sizeValue = document.getElementById('iconSizeValue');
+const glyphs = Array.from(document.querySelectorAll('.glyph'));
+
+function filterIcons() {
+    const query = searchInput.value.trim().toLowerCase();
+
+    glyphs.forEach((glyph) => {
+        const iconName = glyph.querySelector('.mls').textContent.toLowerCase();
+
+        glyph.hidden = query && !iconName.includes(query);
+    });
 }
 
-document.body.addEventListener("click", function(e) {
-    var target = e.target;
-    if (target.tagName === "INPUT" &&
-        target.getAttribute('class').indexOf('liga') === -1) {
-        target.select();
+function updateIconSize() {
+    const size = `${sizeInput.value}px`;
+
+    document.documentElement.style.setProperty('--icon-size', size);
+    sizeValue.value = size;
+    sizeValue.textContent = size;
+}
+
+searchInput.addEventListener('input', filterIcons);
+sizeInput.addEventListener('input', updateIconSize);
+
+document.body.addEventListener('click', (event) => {
+    const input = event.target.closest('.glyph input');
+
+    if (input) {
+        input.select();
     }
 });
-
-(function() {
-    var fontSize = document.getElementById('fontSize'),
-        testDrive = document.getElementById('testDrive'),
-        testText = document.getElementById('testText');
-    function updateTest() {
-        testDrive.innerHTML = testText.value || String.fromCharCode(160);
-        if (window.icomoonLiga) {
-            window.icomoonLiga(testDrive);
-        }
-    }
-    function updateSize() {
-        testDrive.style.fontSize = fontSize.value + 'px';
-    }
-    fontSize.addEventListener('change', updateSize, false);
-    testText.addEventListener('input', updateTest, false);
-    testText.addEventListener('change', updateTest, false);
-    updateSize();
-}());
