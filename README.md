@@ -1,5 +1,10 @@
 # Mantle Icons
 
+[![npm](https://img.shields.io/npm/v/@mantle-ui/icons?label=%40mantle-ui%2Ficons&logo=npm)](https://www.npmjs.com/package/@mantle-ui/icons)
+[![npm downloads](https://img.shields.io/npm/dm/@mantle-ui/icons)](https://www.npmjs.com/package/@mantle-ui/icons)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+[![Discord Chat](https://img.shields.io/discord/1524174660386820177?label=Discord&logo=discord)](https://discord.gg/BGs6EkpnDv)
+
 Mantle Icons is the open-source icon library for Mantle UI.
 
 ## Status
