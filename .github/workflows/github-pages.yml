@@ -23,6 +23,7 @@ jobs:
               run: |
                   mkdir out
                   cp demo.html out/index.html
+                  cp favicon.svg out/
                   cp primeicons.css out/
                   cp -R demo-files fonts out/
             - uses: actions/configure-pages@v6
