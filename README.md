@@ -11,7 +11,7 @@ Browse the icon gallery at [mantle-ui.github.io/mantle-icons](https://mantle-ui.
 
 ## Status
 
-This repository begins as a compatibility continuation of PrimeIcons 7.0.0. It retains the existing `pi-*` class names and font assets so projects can migrate without changing icon markup.
+This repository begins as a compatibility continuation of PrimeIcons 7.0.0. New projects should use the Mantle `mi-*` class names; existing `pi-*` class names and font assets remain available for compatibility.
 
 ## Install
 
@@ -19,7 +19,9 @@ This repository begins as a compatibility continuation of PrimeIcons 7.0.0. It r
 npm install @mantle-ui/icons
 ```
 
-Then include `primeicons/primeicons.css` from the package.
+Then include `@mantle-ui/icons/mantleicons.css` from the package and use classes such as `mi mi-check`.
+
+`@mantle-ui/icons/primeicons.css` and `pi pi-check` remain supported as compatibility aliases.
 
 ## Funding
 
