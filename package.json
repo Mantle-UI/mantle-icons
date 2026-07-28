@@ -1,33 +1,33 @@
 {
-  "name": "@mantle-ui/icons",
-  "version": "7.1.0",
-  "description": "Open-source icon library for Mantle UI.",
-  "style": "mantleicons.css",
-  "files": [
-    "fonts",
-    "raw-svg",
-    "mantleicons.css",
-    "primeicons.css",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ],
-  "scripts": {
-    "build": "npm run verify",
-    "verify": "node scripts/verify-package.mjs",
-    "pack:check": "npm pack --dry-run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mantle-UI/mantle-icons.git"
-  },
-  "keywords": [
-    "Icon"
-  ],
-  "author": "Mantle UI contributors",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Mantle-UI/mantle-icons/issues"
-  },
-  "homepage": "https://github.com/Mantle-UI/mantle-icons#readme"
+    "name": "@mantle-ui/icons",
+    "version": "7.1.1",
+    "description": "Open-source icon library for Mantle UI.",
+    "style": "mantleicons.css",
+    "files": [
+        "fonts",
+        "raw-svg",
+        "mantleicons.css",
+        "primeicons.css",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "npm run verify",
+        "verify": "node scripts/verify-package.mjs",
+        "pack:check": "npm pack --dry-run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mantle-UI/mantle-icons.git"
+    },
+    "keywords": [
+        "Icon"
+    ],
+    "author": "Mantle UI contributors",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Mantle-UI/mantle-icons/issues"
+    },
+    "homepage": "https://github.com/Mantle-UI/mantle-icons#readme"
 }

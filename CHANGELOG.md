@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.1.1](https://github.com/Mantle-UI/mantle-icons/compare/v7.1.0...v7.1.1) (2026-07-28)
+
+[Full Changelog](https://github.com/Mantle-UI/mantle-icons/compare/v7.1.0...v7.1.1)
+
+## Bug Fixes
+
+- feat: add mi icon class prefix [#8](https://github.com/Mantle-UI/mantle-icons/pull/8) (issues: #10)
+## Other Changes
+
+- docs: use Mantle logo favicon [#7](https://github.com/Mantle-UI/mantle-icons/pull/7)
+- chore: remove initial release option [#9](https://github.com/Mantle-UI/mantle-icons/pull/9)
+
 ## [7.0.0](https://github.com/primefaces/primeicons/tree/7.0.0) (2024-03-29)
 
 [Full Changelog](https://github.com/primefaces/primeicons/compare/6.0.1...7.0.0)
