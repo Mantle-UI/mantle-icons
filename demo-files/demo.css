@@ -131,7 +131,7 @@ code {
     color: #f4f7ff;
 }
 
-.glyph .pi {
+.glyph .mi {
     flex: 0 0 2rem;
     color: #9fc0ff;
     font-size: var(--icon-size);
@@ -213,7 +213,7 @@ input {
         display: block;
     }
 
-    .glyph .pi {
+    .glyph .mi {
         display: block;
         margin-bottom: .55rem;
         text-align: left;

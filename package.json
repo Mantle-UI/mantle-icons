@@ -2,10 +2,11 @@
   "name": "@mantle-ui/icons",
   "version": "7.1.0",
   "description": "Open-source icon library for Mantle UI.",
-  "style": "primeicons.css",
+  "style": "mantleicons.css",
   "files": [
     "fonts",
     "raw-svg",
+    "mantleicons.css",
     "primeicons.css",
     "CHANGELOG.md",
     "LICENSE",
