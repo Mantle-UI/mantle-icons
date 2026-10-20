@@ -1,0 +1,4 @@
+[
+    { "name": "paint-bucket", "code": 59962, "tags": ["fill", "paint", "bucket", "color"] },
+    { "name": "eyedropper", "code": 59963, "tags": ["pipette", "color-picker", "sample", "color"] }
+]

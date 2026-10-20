@@ -23,6 +23,15 @@ Then include `@mantle-ui/icons/mantleicons.css` from the package and use classes
 
 `@mantle-ui/icons/primeicons.css` and `pi pi-check` remain supported as compatibility aliases.
 
+## Drawing tools
+
+Use `mi mi-paint-bucket` for flood fill and `mi mi-eyedropper` for a pipette or
+color picker. Both also support the legacy `pi pi-*` class names. These join
+the existing `pencil`, `eraser`, `palette` and `arrows-alt` icons for editor tools.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md#icon-sources-and-validation) for font generation
+and compatibility checks.
+
 ## Funding
 
 Mantle Icons is developed and maintained by the community.
