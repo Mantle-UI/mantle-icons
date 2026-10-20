@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.2.0](https://github.com/Mantle-UI/mantle-icons/compare/v7.1.1...v7.2.0) (2026-10-20)
+
+[Full Changelog](https://github.com/Mantle-UI/mantle-icons/compare/v7.1.1...v7.2.0)
+
+## Features
+
+- Add paint-bucket and eyedropper icons with reproducible font tooling [#11](https://github.com/Mantle-UI/mantle-icons/pull/11) (issues: #12)
+
 ## [7.1.1](https://github.com/Mantle-UI/mantle-icons/compare/v7.1.0...v7.1.1) (2026-07-28)
 
 [Full Changelog](https://github.com/Mantle-UI/mantle-icons/compare/v7.1.0...v7.1.1)
