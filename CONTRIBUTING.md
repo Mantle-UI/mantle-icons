@@ -58,6 +58,35 @@ direction. Not every contribution will be merged.
   English.
 - Follow the repository's local coding conventions and build workflow.
 
+## Icon Sources and Validation
+
+The imported icons retain their IcoMoon `selection.json`, 24×24 filled-outline
+`raw-svg/` sources, and `fonts/primeicons.*` assets. The font filenames and internal
+identity remain unchanged for existing consumers.
+
+New additions are registered in `scripts/icon-additions.json` with kebab-case
+names, search tags and permanently assigned private-use codepoints. Never reuse
+or renumber an existing codepoint. `paint-bucket` uses U+EA3A and `eyedropper` uses
+U+EA3B, immediately after the highest imported assignment, U+EA39.
+
+1. Run `npm ci`.
+2. Edit a filled-outline SVG in `raw-svg/` with `viewBox="0 0 24 24"`. Use the
+   existing rounded outline style and approximately 1.5px source line weight.
+3. Run `npm run generate` to update the TTF, WOFF, WOFF2 and EOT fonts, append
+   SVG font glyphs, and synchronize the IcoMoon selection, CSS aliases and gallery.
+   The generator normalizes new art to the existing 1024 em / 6.25% baseline.
+   It retains imported TTF outlines and metrics rather than reimporting old SVGs.
+4. Run `npm run build` and `npm run pack:check`. Build verifies generated files
+   are current and tests all binary font formats against the 7.1.1 compatibility
+   fingerprints in `tests/fixtures/legacy-glyphs.json`. Do not regenerate that
+   fixture to accept an unintended change to an existing glyph.
+5. Open `tests/visual.html` and inspect 16, 20, 24 and 32px rendering on light and
+   dark backgrounds. Compare with existing pencil, eraser and palette icons;
+   inspect the raw SVG row as well. The normal gallery is `demo.html`.
+
+Commit the source, registry, generated assets and relevant tests/docs together.
+Font tooling is pinned as a development dependency and is not shipped to consumers.
+
 ## Licensing and Attribution
 
 Mantle Icons is distributed under the MIT license. Contributions accepted into

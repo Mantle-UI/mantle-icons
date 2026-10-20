@@ -14,7 +14,9 @@
     ],
     "scripts": {
         "build": "npm run verify",
-        "verify": "node scripts/verify-package.mjs",
+        "verify": "node scripts/verify-package.mjs && npm test",
+        "generate": "node scripts/generate-icons.mjs",
+        "test": "node --test tests/*.test.mjs",
         "pack:check": "npm pack --dry-run"
     },
     "repository": {
@@ -29,5 +31,9 @@
     "bugs": {
         "url": "https://github.com/Mantle-UI/mantle-icons/issues"
     },
-    "homepage": "https://github.com/Mantle-UI/mantle-icons#readme"
+    "homepage": "https://github.com/Mantle-UI/mantle-icons#readme",
+    "devDependencies": {
+        "fonteditor-core": "2.6.3",
+        "svgpath": "2.6.0"
+    }
 }

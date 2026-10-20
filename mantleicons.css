@@ -1646,3 +1646,14 @@
 .pi-spinner:before {
     content: "\e926";
 }
+
+/* Generated additions: npm run generate */
+.mi-paint-bucket:before,
+.pi-paint-bucket:before {
+    content: "\ea3a";
+}
+
+.mi-eyedropper:before,
+.pi-eyedropper:before {
+    content: "\ea3b";
+}

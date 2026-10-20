@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor tool icon visual check</title>
+<link rel="stylesheet" href="../mantleicons.css">
+<style>
+    body { margin: 32px; font: 14px system-ui; background: #f6f7f9; color: #17212d; }
+    h1 { font-size: 22px; }
+    section { padding: 20px; margin-bottom: 20px; border-radius: 8px; background: white; }
+    section.dark { background: #17212d; color: #f6f7f9; }
+    table { border-spacing: 20px 12px; }
+    th { font-weight: 500; text-align: left; }
+    td { text-align: center; min-width: 110px; }
+    img { width: 24px; height: 24px; }
+    .dark img { filter: invert(1); }
+</style>
+<h1>Editor tool icons</h1>
+<p>Compare the new glyphs with existing pencil, eraser and palette glyphs at normal UI sizes.</p>
+<div id="samples"></div>
+<script>
+    const names = ['paint-bucket', 'eyedropper', 'pencil', 'eraser', 'palette'];
+    for (const dark of [false, true]) {
+        const section = document.createElement('section');
+        section.className = dark ? 'dark' : '';
+        section.innerHTML = `<table><thead><tr><th>Font size</th>${names.map(name => `<th>${name}</th>`).join('')}</tr></thead><tbody>
+            ${[16, 20, 24, 32].map(size => `<tr><th>${size}px</th>${names.map(name => `<td><i class="mi mi-${name}" style="font-size:${size}px" aria-label="${name}"></i></td>`).join('')}</tr>`).join('')}
+            <tr><th>Raw SVG (24px)</th>${names.map(name => `<td><img src="../raw-svg/${name}.svg" alt="${name}"></td>`).join('')}</tr>
+            </tbody></table>`;
+        document.getElementById('samples').append(section);
+    }
+</script>
+</html>
