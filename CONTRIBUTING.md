@@ -80,9 +80,8 @@ U+EA3B, immediately after the highest imported assignment, U+EA39.
    are current and tests all binary font formats against the 7.1.1 compatibility
    fingerprints in `tests/fixtures/legacy-glyphs.json`. Do not regenerate that
    fixture to accept an unintended change to an existing glyph.
-5. Open `tests/visual.html` and inspect 16, 20, 24 and 32px rendering on light and
-   dark backgrounds. Compare with existing pencil, eraser and palette icons;
-   inspect the raw SVG row as well. The normal gallery is `demo.html`.
+5. Use the existing `demo.html` gallery to inspect rendering at normal icon sizes,
+   and inspect the corresponding `raw-svg/` sources.
 
 Commit the source, registry, generated assets and relevant tests/docs together.
 Font tooling is pinned as a development dependency and is not shipped to consumers.

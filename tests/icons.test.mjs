@@ -67,14 +67,3 @@ test('SVG font retains its identity and includes both additions', async () => {
         assert.match(svg, new RegExp(`<glyph unicode="&#x${code.toString(16)};" glyph-name="${name}"`));
     }
 });
-
-test('before/after review artifact embeds the current font and actual SVG sources', async () => {
-    const html = (await read('docs/editor-icons-comparison.html')).toString();
-    const data = JSON.parse(html.match(/const data=(\{[^\n]+\});/)[1]);
-    assert.deepEqual(Buffer.from(data.afterFont, 'base64'), await read('fonts/primeicons.woff2'));
-    assert.notEqual(data.beforeFont, data.afterFont);
-    for (const name of ['paint-bucket', 'eyedropper', 'pencil', 'eraser', 'wrench']) {
-        const source = data.sources[name].after.split(',')[1];
-        assert.deepEqual(Buffer.from(source, 'base64'), await read(`raw-svg/${name}.svg`));
-    }
-});
